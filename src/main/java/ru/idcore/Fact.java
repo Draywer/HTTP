@@ -2,7 +2,6 @@ package ru.idcore;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.util.Date;
 import java.util.Objects;
 
 public class Fact {
@@ -10,10 +9,10 @@ public class Fact {
     private Status status;
     private String type;
     private boolean deleted;
-    private String _id;
-    private String user;
-    private String text;
-    private int __v;
+    private String factId;
+    private String userId;
+    private String description;
+    private int rating;
     private String source;
     private String updatedAt;
     private String createdAt;
@@ -22,10 +21,10 @@ public class Fact {
     public Fact(@JsonProperty("status") Status status,
                 @JsonProperty("type") String type,
                 @JsonProperty("deleted") boolean deleted,
-                @JsonProperty("_id") String _id,
-                @JsonProperty("user") String user,
-                @JsonProperty("text") String text,
-                @JsonProperty("__v") int __v,
+                @JsonProperty("_id") String factId,
+                @JsonProperty("user") String userId,
+                @JsonProperty("text") String description,
+                @JsonProperty("__v") int rating,
                 @JsonProperty("source") String source,
                 @JsonProperty("updatedAt") String updatedAt,
                 @JsonProperty("createdAt") String createdAt,
@@ -33,10 +32,10 @@ public class Fact {
         this.status = status;
         this.type = type;
         this.deleted = deleted;
-        this._id = _id;
-        this.user = user;
-        this.text = text;
-        this.__v = __v;
+        this.factId = factId;
+        this.userId = userId;
+        this.description = description;
+        this.rating = rating;
         this.source = source;
         this.updatedAt = updatedAt;
         this.createdAt = createdAt;
@@ -67,36 +66,36 @@ public class Fact {
         this.deleted = deleted;
     }
 
-    public String get_id() {
-        return _id;
+    public String getFactId() {
+        return factId;
     }
 
-    public void set_id(String _id) {
-        this._id = _id;
+    public void setFactId(String factId) {
+        this.factId = factId;
     }
 
-    public String getUser() {
-        return user;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setUser(String user) {
-        this.user = user;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
-    public String getText() {
-        return text;
+    public String getDescription() {
+        return description;
     }
 
-    public void setText(String text) {
-        this.text = text;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public int get__v() {
-        return __v;
+    public int getRating() {
+        return rating;
     }
 
-    public void set__v(int __v) {
-        this.__v = __v;
+    public void setRating(int rating) {
+        this.rating = rating;
     }
 
     public String getSource() {
@@ -137,10 +136,10 @@ public class Fact {
                 "status=" + status +
                 ", type='" + type + '\'' +
                 ", deleted=" + deleted +
-                ", _id='" + _id + '\'' +
-                ", user='" + user + '\'' +
-                ", text='" + text + '\'' +
-                ", __v=" + __v +
+                ", factId='" + factId + '\'' +
+                ", userId='" + userId + '\'' +
+                ", description='" + description + '\'' +
+                ", rating=" + rating +
                 ", source='" + source + '\'' +
                 ", updatedAt='" + updatedAt + '\'' +
                 ", createdAt='" + createdAt + '\'' +
@@ -154,13 +153,13 @@ public class Fact {
         if (!(o instanceof Fact)) return false;
         Fact fact = (Fact) o;
         return isDeleted() == fact.isDeleted() &&
-                get__v() == fact.get__v() &&
+                getRating() == fact.getRating() &&
                 isUsed() == fact.isUsed() &&
                 getStatus().equals(fact.getStatus()) &&
                 getType().equals(fact.getType()) &&
-                get_id().equals(fact.get_id()) &&
-                getUser().equals(fact.getUser()) &&
-                getText().equals(fact.getText()) &&
+                getFactId().equals(fact.getFactId()) &&
+                getUserId().equals(fact.getUserId()) &&
+                getDescription().equals(fact.getDescription()) &&
                 getSource().equals(fact.getSource()) &&
                 getUpdatedAt().equals(fact.getUpdatedAt()) &&
                 getCreatedAt().equals(fact.getCreatedAt());
@@ -171,10 +170,10 @@ public class Fact {
         return Objects.hash(getStatus(),
                 getType(),
                 isDeleted(),
-                get_id(),
-                getUser(),
-                getText(),
-                get__v(),
+                getFactId(),
+                getUserId(),
+                getDescription(),
+                getRating(),
                 getSource(),
                 getUpdatedAt(),
                 getCreatedAt(),
